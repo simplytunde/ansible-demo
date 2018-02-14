@@ -1,2 +1,11 @@
 ---
 # tasks file for webserver
+
+- name: copy the war file from s3
+  copy:
+    src: files/TicTacToe.war
+    dest: "{{ tomcat_home_path }}"
+- name: restart tomcat
+  service:
+    name: tomcat
+    state: restarted
