@@ -1,0 +1,7 @@
+pipelining : True
+forks : 5
+control_path : '%(directory)s/%%h-%%r'
+control_path_dir : ~/Documents/dev/tools/ansible
+ansible_key : ~/.ssh/id_rsa
+ansible_user : centos
+ansible_ssh_extra_args : '-o StrictHostKeyChecking=no -o ControlMaster=auto -o ControlPersist=600s'

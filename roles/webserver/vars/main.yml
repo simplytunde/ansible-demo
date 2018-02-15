@@ -1,3 +1,0 @@
----
-# vars file for webserver
-tomcat_home_path: /opt/tomcat-latest/webapps

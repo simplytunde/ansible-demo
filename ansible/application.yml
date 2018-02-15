@@ -1,0 +1,23 @@
+- hosts: localhost
+  tasks:
+    - name: add ec2 instance to webservers
+      ec2_instance_facts:
+        region: us-west-1
+        filters:
+          "tag:env": prod
+          "tag:type": webserver
+          "instance-state-name": "running"
+      register: result
+    - debug: var=result
+    - add_host:
+        name: "{{ item.public_ip_address }}"
+        groups: production-webservers
+      no_log: True
+      with_items: "{{ result.instances }}"
+
+- hosts: production-webservers
+  become: true
+  roles:
+    - webserver
+  tasks:
+    - shell: ls

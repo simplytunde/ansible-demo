@@ -1,0 +1,25 @@
+---
+
+# system preparation
+tomcat_os_group_name:  tomcat
+tomcat_os_user_name:   tomcat
+tomcat_service_name:   tomcat
+tomcat_home_path:   /home
+
+# Tomcat binary to dl and related path
+tomcat_binary: apache-tomcat-8.5.9.tar.gz
+tomcat_binary_url:  "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.9/bin/{{ tomcat_binary }}"
+tomcat_dest: /opt/
+tomcat_target_dir:  apache-tomcat-8.5.9
+tomcat_symlink:  tomcat-latest
+
+# Tomcat configuration files related
+tomcat_conf_dir:  "{{ tomcat_dest }}{{ tomcat_symlink }}/conf/"
+
+# Tomcat server.xml
+# nothing for now
+
+# Tomcat users.xml
+tomcat_jenkins_username:  jenkins
+tomcat_admin_username:
+tomcat_admin_password:
